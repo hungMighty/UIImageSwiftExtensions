@@ -22,11 +22,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-so-PZw">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdI-H1-owO">
-                                <rect key="frame" x="16" y="318.5" width="30" height="30"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0n-Gq-DNe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NeC-so-PZw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NeC-so-PZw" secondAttribute="trailing" id="3hs-ms-Uxn"/>
+                                    <constraint firstItem="NeC-so-PZw" firstAttribute="width" secondItem="H0n-Gq-DNe" secondAttribute="width" id="6or-Yt-eUZ"/>
+                                    <constraint firstItem="NeC-so-PZw" firstAttribute="height" secondItem="H0n-Gq-DNe" secondAttribute="height" id="B4f-UY-VPp"/>
+                                    <constraint firstItem="NeC-so-PZw" firstAttribute="top" secondItem="H0n-Gq-DNe" secondAttribute="top" id="a8C-q9-X6E"/>
+                                    <constraint firstItem="NeC-so-PZw" firstAttribute="leading" secondItem="H0n-Gq-DNe" secondAttribute="leading" id="cwb-bb-bnF"/>
+                                    <constraint firstAttribute="bottom" secondItem="NeC-so-PZw" secondAttribute="bottom" id="vnE-ju-xN2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="KUD-4q-MkO"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdI-H1-owO" userLabel="Left Arrow">
+                                <rect key="frame" x="16" y="318" width="30" height="30"/>
                                 <state key="normal" image="left_arrow_icon">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -34,7 +50,7 @@
                                     <action selector="touchLeftArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C37-wY-2Zh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUT-rx-6Pu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUT-rx-6Pu" userLabel="Right Arrow">
                                 <rect key="frame" x="329" y="318" width="30" height="30"/>
                                 <state key="normal" image="right_arrow_icon"/>
                                 <connections>
@@ -45,21 +61,23 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kUT-rx-6Pu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0dZ-pH-kyF"/>
-                            <constraint firstItem="sdI-H1-owO" firstAttribute="leading" secondItem="NeC-so-PZw" secondAttribute="leading" id="6gp-7V-h6q"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NeC-so-PZw" secondAttribute="bottom" id="BtD-RV-Duq"/>
-                            <constraint firstItem="kUT-rx-6Pu" firstAttribute="trailing" secondItem="NeC-so-PZw" secondAttribute="trailing" id="PqR-wH-Y7H"/>
-                            <constraint firstItem="NeC-so-PZw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fGX-7S-hd9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NeC-so-PZw" secondAttribute="trailing" id="mo5-7Z-hlF"/>
-                            <constraint firstItem="NeC-so-PZw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wiD-WI-iZ8"/>
+                            <constraint firstItem="H0n-Gq-DNe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8ji-PY-icY"/>
+                            <constraint firstItem="sdI-H1-owO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aYb-Wb-88h"/>
+                            <constraint firstAttribute="trailing" secondItem="H0n-Gq-DNe" secondAttribute="trailing" id="j43-rt-Kxo"/>
+                            <constraint firstItem="kUT-rx-6Pu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oSe-k7-E8F"/>
+                            <constraint firstItem="H0n-Gq-DNe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rCl-jf-Xpl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H0n-Gq-DNe" secondAttribute="bottom" id="re3-hN-2ur"/>
                             <constraint firstItem="sdI-H1-owO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yuI-fb-nMa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myImageView" destination="NeC-so-PZw" id="IwC-Qz-9a3"/>
+                        <outlet property="scrollView" destination="H0n-Gq-DNe" id="bip-Xp-0RL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="29.600000000000001" y="40.929535232383813"/>
         </scene>
     </scenes>
     <resources>

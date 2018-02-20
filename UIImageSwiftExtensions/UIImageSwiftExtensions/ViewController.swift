@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var myImageView: UIImageView!
     
     fileprivate let imageNames = ["Childhood World", "Android 21", "Ahri icon",
@@ -24,6 +25,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 60.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +63,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Image Processing
+
 extension ViewController {
     
     fileprivate func loadImageAt(index i: Int) {
@@ -89,6 +94,14 @@ extension ViewController {
         } else {
             myImageView.contentMode = .scaleAspectFit
         }
+    }
+    
+}
+
+extension ViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return myImageView
     }
     
 }
