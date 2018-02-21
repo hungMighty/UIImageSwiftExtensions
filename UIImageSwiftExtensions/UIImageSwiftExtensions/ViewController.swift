@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 60.0
+        scrollView.maximumZoomScale = 30.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +70,8 @@ extension ViewController {
         guard i >= 0 && i < imageNames.count else {
             return
         }
-        curIndex = i
         
+        curIndex = i
         if let image = UIImage(named: imageNames[i]) {
             curImage = image
             adjustContentMode()
